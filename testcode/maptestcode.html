@@ -4,32 +4,34 @@
            <title>TGOS MAP API (lite) --- 多標記點呈現</title>
            <!--呼叫TGOS MAP API (lite)-->
            <script type="text/javascript" src="https://api.tgos.tw/TGOS_API/tgos?ver=2&AppID=x+JLVSx85Lk=&APIKey=in8W74q0ogpcfW/STwicK8D5QwCdddJf05/7nb+OtDh8R99YN3T0LurV4xato3TpL/fOfylvJ9Wv/khZEsXEWxsBmg+GEj4AuokiNXCh14Rei21U5GtJpIkO++Mq3AguFK/ISDEWn4hMzqgrkxNe1Q=="charset="utf-8"></script>
-           <script type="text/javascript">
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		   <script type="text/javascript">
                      var messageBox;                    //訊息視窗物件  
                      var pMap;                      //初始化地圖物件
                      //-----------------須自行修改的參數,包含點位坐標,訊息視窗內容及圖示檔案來源設定----------------------
-        var infotext =  ['<B>嘉義市'
-                                                                , '<B>嘉義市政府'
-                                                                , '<B>嘉義市1'
-                                                                , '<B>嘉義市2'
-                                                                , '<B>嘉義市3'
-                                                                ];        //依序填入地標名稱及訊息視窗內容, 可自行增減數量
-                     var markerPoint = [new TGOS.TGPoint(120.4491113,23.4800751)
-                                                                , new TGOS.TGPoint(120.453556,23.481305)
-                                                                , new TGOS.TGPoint(120.4491113,23.486422)
-                                                                , new TGOS.TGPoint(120.422521,23.477008)
-                                                                , new TGOS.TGPoint(120.461897,23.471478)
-                                                                ];        //依序填入地標坐標位置, 坐標數須與標記數一致
-                     var imgUrl = ["https://api.tgos.tw/TGOS_API/images/marker2.png"
-                                                     , "https://api.tgos.tw/TGOS_API/images/marker2.png"
-                                                     , "https://api.tgos.tw/TGOS_API/images/marker2.png"
-                                                     , "https://api.tgos.tw/TGOS_API/images/marker2.png"
-                                                     , "https://api.tgos.tw/TGOS_API/images/marker2.png"
-                                                     ];                   //依序設定標記點圖示來源
-                     //--------------------若網頁介面依照範例網頁的預設設定,以下程式碼可不修改--------------------------
-                     function InitWnd()
+					 //var infotext =  ['<B>嘉義市'];        //依序填入地標名稱及訊息視窗內容, 可自行增減數量
+                     //var markerPoint = [new TGOS.TGPoint(120.4491113,23.4800751)];        //依序填入地標坐標位置, 坐標數須與標記數一致
+                     //var imgUrl = ["https://api.tgos.tw/TGOS_API/images/marker2.png"];                   //依序設定標記點圖示來源
+					 var infotext =  [];        //依序填入地標名稱及訊息視窗內容, 可自行增減數量
+                     var markerPoint = [];        //依序填入地標坐標位置, 坐標數須與標記數一致
+                     var imgUrl = [];                   //依序設定標記點圖示來源
+					 var itaiwan = [];
+                     //--------------------若網頁介面依照範例網頁的預設設定,以下程式碼可不修改--------------------------                     
+					 function InitWnd()
                      {
-                                //------------------初始化地圖--------------------
+                                $.getJSON('itw_tw.json', {}, function(r) {
+								itaiwan = r;
+								console.log(r);
+								for (var i = 0; i<itaiwan.length;i++){
+								infotext.push(itaiwan[i].NAME);
+								markerPoint.push(new TGOS.TGPoint(itaiwan[i].LONGITUDE,itaiwan[i].LATITUDE));
+								imgUrl.push("https://api.tgos.tw/TGOS_API/images/marker2.png");
+								}								
+							});
+							console.log(infotext);
+							console.log(imgUrl);
+							
+								//------------------初始化地圖--------------------
                                 var pOMap = document.getElementById("OMap");
                                 var mapOptiions = {
                                            scaleControl: false,                //不顯示比例尺
