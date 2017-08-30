@@ -61,8 +61,9 @@
 										opacity:0.8
 									};
 									messageBox= new TGOS.TGInfoWindow(infotext[i], markerPoint[i], InfoWindowOptions);   //建立訊息視窗                                                                  
-									TGOS.TGEvent.addListener(pTGMarker, "mouseover", function (pTGMarker, messageBox) {return function () {messageBox.open(pMap, pTGMarker);}} (pTGMarker, messageBox));//滑鼠監聽事件--開啟訊息視窗
-									TGOS.TGEvent.addListener(pTGMarker, "mouseout", function (messageBox) {return function () {messageBox.close();}} (messageBox));
+									TGOS.TGEvent.addListener(pTGMarker, "click", function (pTGMarker, messageBox) {return function () {messageBox.open(pMap, pTGMarker);}} (pTGMarker, messageBox));//滑鼠監聽事件--開啟訊息視窗
+									//TGOS.TGEvent.addListener(pTGMarker, "mouseover", function (pTGMarker, messageBox) {return function () {messageBox.open(pMap, pTGMarker);}} (pTGMarker, messageBox));//滑鼠監聽事件--開啟訊息視窗
+									//TGOS.TGEvent.addListener(pTGMarker, "mouseout", function (messageBox) {return function () {messageBox.close();}} (messageBox));																		
 									}    
 								}
 			</script>
