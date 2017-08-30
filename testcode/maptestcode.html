@@ -21,7 +21,7 @@
                      {
                                 $.getJSON('itw_tw.json', {}, function(r) {
 								itaiwan = r;
-								console.log(r);
+								console.log(r.length);
 								for (var i = 0; i<itaiwan.length;i++){
 								infotext.push(itaiwan[i].NAME);
 								markerPoint.push(new TGOS.TGPoint(itaiwan[i].LONGITUDE,itaiwan[i].LATITUDE));
