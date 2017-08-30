@@ -22,7 +22,7 @@
                                 $.getJSON('itw_tw.json', {}, function(r) {
 								itaiwan = r;
 								console.log("itaiwan "+itaiwan.length);
-								for (var i = 9296; i<9531;i++){
+								for (var i = 9525; i<9531;i++){//9296-9531
 								infotext.push(itaiwan[i].NAME);
 								markerPoint.push(new TGOS.TGPoint(itaiwan[i].LONGITUDE,itaiwan[i].LATITUDE));
 								imgUrl.push("https://api.tgos.tw/TGOS_API/images/marker2.png");
