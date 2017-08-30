@@ -8,23 +8,23 @@
                      var messageBox;                    //訊息視窗物件  
                      var pMap;                      //初始化地圖物件
                      //-----------------須自行修改的參數,包含點位坐標,訊息視窗內容及圖示檔案來源設定----------------------
-        var infotext =  ['<B>臺北市政府'
-                                                                , '<B>新北市政府'
-                                                                , '<B>臺中市政府'
-                                                                , '<B>臺南市政府'
-                                                                , '<B>高雄市政府'
+        var infotext =  ['<B>嘉義市'
+                                                                , '<B>嘉義市政府'
+                                                                , '<B>嘉義市1'
+                                                                , '<B>嘉義市2'
+                                                                , '<B>嘉義市3'
                                                                 ];        //依序填入地標名稱及訊息視窗內容, 可自行增減數量
-                     var markerPoint = [new TGOS.TGPoint(306954, 2770049)
-                                                                , new TGOS.TGPoint(296991, 2767219)
-                                                                , new TGOS.TGPoint(214192, 2673102)
-                                                                , new TGOS.TGPoint(166459, 2543656)
-                                                                , new TGOS.TGPoint(179269, 2502465)
+                     var markerPoint = [new TGOS.TGPoint(120.4491113,23.4800751)
+                                                                , new TGOS.TGPoint(120.453556,23.481305)
+                                                                , new TGOS.TGPoint(120.4491113,23.486422)
+                                                                , new TGOS.TGPoint(120.422521,23.477008)
+                                                                , new TGOS.TGPoint(120.461897,23.471478)
                                                                 ];        //依序填入地標坐標位置, 坐標數須與標記數一致
-                     var imgUrl = ["http://api.tgos.tw/TGOS_API/images/marker2.png"
-                                                     , "http://api.tgos.tw/TGOS_API/images/marker2.png"
-                                                     , "http://api.tgos.tw/TGOS_API/images/marker2.png"
-                                                     , "http://api.tgos.tw/TGOS_API/images/marker2.png"
-                                                     , "http://api.tgos.tw/TGOS_API/images/marker2.png"
+                     var imgUrl = ["https://api.tgos.tw/TGOS_API/images/marker2.png"
+                                                     , "https://api.tgos.tw/TGOS_API/images/marker2.png"
+                                                     , "https://api.tgos.tw/TGOS_API/images/marker2.png"
+                                                     , "https://api.tgos.tw/TGOS_API/images/marker2.png"
+                                                     , "https://api.tgos.tw/TGOS_API/images/marker2.png"
                                                      ];                   //依序設定標記點圖示來源
                      //--------------------若網頁介面依照範例網頁的預設設定,以下程式碼可不修改--------------------------
                      function InitWnd()
@@ -40,9 +40,9 @@
                                            },
                                            mapTypeControl: false                   //不顯示地圖類型控制項
                                 };
-                                pMap = new TGOS.TGOnlineMap(pOMap, TGOS.TGCoordSys.EPSG3826, mapOptiions);    //建立地圖,選擇TWD97坐標
-                                pMap.setZoom(2);                                     //初始地圖縮放層級
-                                //pMap.setCenter(中心點X坐標, 中心點Y坐標);      //初始地圖中心點
+                                pMap = new TGOS.TGOnlineMap(pOMap, TGOS.TGCoordSys.EPSG3857, mapOptiions);    //建立地圖,選擇TWD97坐標
+                                pMap.setZoom(14);   
+								pMap.setCenter(new TGOS.TGPoint(120.4491113,23.4800751));      //初始地圖中心點
                                
             for(var i = 0; i < infotext.length; i++) {
                 //------------------建立標記點---------------------
@@ -69,5 +69,5 @@
            </script>
 </head>
 <body style="margin:0px" onload="InitWnd();">
-           <div id="OMap" style="position:absolute; top:5px; left:5px; width:495px; height:400px; border:1px solid #000000;"></div>
+           <div id="OMap" style="position:absolute; top:5px; left:5px; width:100%; height:400px; border:1px solid #000000;"></div>
 </html>
