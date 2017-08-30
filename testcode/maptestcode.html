@@ -19,8 +19,9 @@
 					 $.getJSON('itw_tw.json', {}, function(r) {
 								itaiwan = r;
 								console.log("itaiwan "+itaiwan.length);
+								var pattern = /^嘉義/;
 								for (var i = 0;i<itaiwan.length;i++){
-									if (itaiwan[i].AGENCY == '嘉義市政府'){
+									if (pattern.test(itaiwan[i].AGENCY) || pattern.test(itaiwan[i].NAME)){
 										infotext.push(itaiwan[i].NAME);
 										markerPoint.push(new TGOS.TGPoint(itaiwan[i].LONGITUDE,itaiwan[i].LATITUDE));
 										imgUrl.push("https://api.tgos.tw/TGOS_API/images/marker2.png");
