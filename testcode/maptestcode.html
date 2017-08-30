@@ -46,13 +46,13 @@
 									},
 									mapTypeControl: false                   //不顯示地圖類型控制項
                                 };
-                                pMap = new TGOS.TGOnlineMap(pOMap, TGOS.TGCoordSys.EPSG3857, mapOptiions);    //建立地圖,選擇TWD97坐標
+                                pMap = new TGOS.TGOnlineMap(pOMap, TGOS.TGCoordSys.EPSG3857, mapOptiions);    //建立地圖,選擇Google坐標
                                 pMap.setZoom(14);   
 								pMap.setCenter(new TGOS.TGPoint(120.4491113,23.4800751));      //初始地圖中心點
                                
 							   for(var i = 0; i < infotext.length; i++) {
 									//------------------建立標記點---------------------
-									var markerImg = new TGOS.TGImage(imgUrl[i], new TGOS.TGSize(38, 33), new TGOS.TGPoint(0, 0), new TGOS.TGPoint(10, 33));       //設定標記點圖片及尺寸大小
+									var markerImg = new TGOS.TGImage(imgUrl[i], new TGOS.TGSize(32, 33), new TGOS.TGPoint(0, 0), new TGOS.TGPoint(10, 33));       //設定標記點圖片及尺寸大小
 									var pTGMarker = new TGOS.TGMarker(pMap, markerPoint[i],'', markerImg, {flat:false});   //建立機關單位標記點
 									//-----------------建立訊息視窗--------------------
 									var InfoWindowOptions = {
@@ -69,6 +69,9 @@
 			</script>
 </head>
 <body style="margin:0px">
-           <div id="OMap" style="position:absolute; top:5px; left:5px; Right:5px; width:100%; height:80%; border:1px solid #000000;"></div>
+			<div>
+				<div id="OMap" style="position:absolute; top:5px; right:5px; left:5px; width:100%; height:80%; border:1px solid #000000;"></div>
+			</div>           
+		   <p style="float:right ">Created by Lin17</p>
 </body>
 </html>
