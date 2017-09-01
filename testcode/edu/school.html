@@ -24,14 +24,11 @@
 					 console.log("d3.csv on!");
 					 school = data;
 					 console.log("school "+school.length);
-					 var pattern = /嘉義市/;
 						for (var i = 0;i<school.length;i++){
-							if (pattern.test(school[i].校址)){
-								infotext.push("<B>校名:"+school[i].校名+"</br>電話:"+school[i].電話+"</br>傳真:"+school[i].傳真+"</br>校址:"+school[i].校址+"</br>LAT:"+school[i].LATITUDE+"</br>LON:"+school[i].LONGITUDE);
-								markerPoint.push(new TGOS.TGPoint(school[i].LONGITUDE,school[i].LATITUDE));
-								imgUrl.push("https://api.tgos.tw/TGOS_API/images/marker2.png");
-								}
-							}
+							infotext.push("<B>校名:"+school[i].校名+"</br>電話:"+school[i].電話+"</br>傳真:"+school[i].傳真+"</br>校址:"+school[i].校址+"</br>LAT:"+school[i].LATITUDE+"</br>LON:"+school[i].LONGITUDE);
+							markerPoint.push(new TGOS.TGPoint(school[i].LONGITUDE,school[i].LATITUDE));
+							imgUrl.push("https://api.tgos.tw/TGOS_API/images/marker2.png");
+						}
 							InitWnd();
 					 });					 
 							//--------------------若網頁介面依照範例網頁的預設設定,以下程式碼可不修改--------------------------                     
@@ -83,6 +80,7 @@
 							<li><a href="../iot/maptestcode.html">iTaiwan</a></li>
 							<li><a href="../social/police.html">police</a></li>
 							<li><a href="#">school</a></li>
+							<li><a href="../social/oil.html">oil</a></li>
 						</ul>
 					</div>
 				</div>
