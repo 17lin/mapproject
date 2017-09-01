@@ -19,7 +19,7 @@
                      var markerPoint = [];        //依序填入地標坐標位置, 坐標數須與標記數一致
                      var imgUrl = [];                   //依序設定標記點圖示來源
 					 var itaiwan = [];
-					 $.getJSON('https://www.gsp.gov.tw/iTaiwan/itw_tw.json', {}, function(r) {
+					 $.getJSON('itw_tw.json', {}, function(r) {
 						console.log("getJSON on!");
 						itaiwan = r;
 						console.log("itaiwan "+itaiwan.length);
