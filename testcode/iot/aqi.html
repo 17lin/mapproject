@@ -1,0 +1,91 @@
+<html>
+<head>
+           <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+		   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+		   <meta charset="utf-8">
+		   <meta property="og:title" content="Chiayi OpenData AQI in TGOS">
+		   <meta property="og:description" content="Chiayi X OpenData X AQI X TGOS">
+		   <meta property="og:type" content="website">
+           <title>Chiayi X OpenData X AQI X TGOS</title>
+		   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">           
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		   <script type="text/javascript">
+			var AQIvalue = 0;
+			function AQIp(){
+				document.getElementById("AQI").innerHTML = AQIvalue;
+				if (AQIvalue <51){
+					document.getElementById("Quality").innerHTML = "良好";
+					document.getElementById("Quality").style = "BACKGROUND-COLOR: #0f0;";
+				}else if(AQIvalue >50 && AQIvalue <101){
+					document.getElementById("Quality").innerHTML = "普通";
+					document.getElementById("Quality").style = "BACKGROUND-COLOR: #ff0;";
+				}else if(AQIvalue >100 && AQIvalue <151){
+					document.getElementById("Quality").innerHTML = "對敏感族群不健康";
+					document.getElementById("Quality").style = "BACKGROUND-COLOR: #ff7e00;";
+				}else if(AQIvalue >150 && AQIvalue <201){
+					document.getElementById("Quality").innerHTML = "對所有族群不健康";
+					document.getElementById("Quality").style = "BACKGROUND-COLOR: red;";
+				}else if(AQIvalue >200 && AQIvalue <301){
+					document.getElementById("Quality").innerHTML = '<span style="COLOR: #ffffff;">非常不健康</span>';
+					document.getElementById("Quality").style = "BACKGROUND-COLOR: purple;";
+				}else if(AQIvalue >300){
+					document.getElementById("Quality").innerHTML = '<span style="COLOR: #ffffff;">危害</span>';
+					document.getElementById("Quality").style = "BACKGROUND-COLOR: #7E0023;";
+				}else{
+					document.getElementById("Quality").innerHTML = "不明錯誤";			
+				}
+			}
+			$.getJSON('https://opendata.epa.gov.tw/ws/Data/AQI/?$format=json', {}, function(allAQI) {
+				console.log("getJSON on!");
+				console.log("allAQI "+allAQI.length);
+				var pattern = /嘉義市/;
+				for (var i = 0;i<allAQI.length;i++){
+					if (pattern.test(allAQI[i].County))AQIvalue = allAQI[i].AQI;
+				}
+				AQIp();
+		});	
+	</script>
+</head>
+<body>
+			<nav class="navbar navbar-default navbar-static-top" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="../index.html">Chiayi</a>
+					</div>
+					<div>
+						<ul class="nav navbar-nav">
+							<li><a href="../iot/maptestcode.html">iTaiwan</a></li>
+							<li><a href="../social/police.html">police</a></li>
+							<li><a href="../edu/school.html">school</a></li>
+							<li><a href="#">AQI</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<div style="width:100%; height:80%;">
+			<div style="float:left;">
+				介面開發中~
+			</div>
+			<div>
+			</div>
+			<div style="float:right; width:auto;">
+				<div class="spanne spannefont"><span>Chiayi site</span></div>
+				<div class="spanne spannefont"><span>AQI:<span id="AQI"></span><span> Quality:<span id="Quality"></span></span></span></div>  
+				<div class="spanne spannefont">空品旗號誌對照表(AQI)</div>    
+				<div class="spanne pmspanne">
+				<span class="AQI_1" style="BACKGROUND-COLOR: #0f0;">0-50</span>
+				<span class="AQI_2" style="BACKGROUND-COLOR:#ff0;">51-100</span>
+				<span class="AQI_3" style="BACKGROUND-COLOR: #ff7e00;">101-150</span>
+				<span class="AQI_4" style="BACKGROUND-COLOR: red;">151-200</span>
+				<span class="AQI_5" style="BACKGROUND-COLOR: purple;"><span style="COLOR: #ffffff;">201-300</span></span>
+				<span class="AQI_6" style="BACKGROUND-COLOR: #7E0023;"><span style="COLOR: #ffffff;">301~</span></span>
+				</div>
+			</div>
+			</div>
+			<div style="text-align: center;float:bottom;">
+				<a href="https://github.com/17lin/mapproject" target="_blank" id="final_a">網站原始碼 by 資訊科十七</a> /
+                資料來源：<a href="https://data.gov.tw/" target="_blank" id="final_a">政府資料開放平台</a> 
+			</div>
+</body>
+</html>
