@@ -3,10 +3,10 @@
            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
 		   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 		   <meta charset="utf-8">
-		   <meta property="og:title" content="Chiayi OpenData school in TGOS">
-		   <meta property="og:description" content="Chiayi X OpenData X school X TGOS">
+		   <meta property="og:title" content="Chiayi OpenData data in TGOS">
+		   <meta property="og:description" content="Chiayi X OpenData X data X TGOS">
 		   <meta property="og:type" content="website">
-           <title>Chiayi X OpenData X school X TGOS</title>
+           <title>Chiayi X OpenData X data X TGOS</title>
 		   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
            <!--呼叫TGOS MAP API (lite)-->
            <script type="text/javascript" src="https://api.tgos.tw/TGOS_API/tgos?ver=2&AppID=x+JLVSx85Lk=&APIKey=in8W74q0ogpcfW/STwicK8D5QwCdddJf05/7nb+OtDh8R99YN3T0LurV4xato3TpL/fOfylvJ9Wv/khZEsXEWxsBmg+GEj4AuokiNXCh14Rei21U5GtJpIkO++Mq3AguFK/ISDEWn4hMzqgrkxNe1Q=="charset="utf-8"></script>
@@ -16,19 +16,12 @@
 		   <script src="../loadpage.js"></script>
 		   <script src="../InitWnd.js"></script>
 		   <script type="text/javascript">
-                     var messageBox;                    //訊息視窗物件  
-                     var pMap;                      //初始化地圖物件
-					 var infotext =  [];        //依序填入地標名稱及訊息視窗內容, 可自行增減數量
-                     var markerPoint = [];        //依序填入地標坐標位置, 坐標數須與標記數一致
-                     var imgUrl = [];                   //依序設定標記點圖示來源
-					 var police = [];
 					 d3.csv("嘉義市公立國民中小學.csv", function(data) {
 					 console.log("d3.csv on!");
-					 school = data;
-					 console.log("school "+school.length);
-						for (var i = 0;i<school.length;i++){
-							infotext.push("<B>校名:"+school[i].校名+"</br>電話:"+school[i].電話+"</br>傳真:"+school[i].傳真+"</br>校址:"+school[i].校址+"</br>LAT:"+school[i].LATITUDE+"</br>LON:"+school[i].LONGITUDE);
-							markerPoint.push(new TGOS.TGPoint(school[i].LONGITUDE,school[i].LATITUDE));
+					 console.log("data "+data.length);
+						for (var i = 0;i<data.length;i++){
+							infotext.push("<B>校名:"+data[i].校名+"</br>電話:"+data[i].電話+"</br>傳真:"+data[i].傳真+"</br>校址:"+data[i].校址+"</br>LAT:"+data[i].LATITUDE+"</br>LON:"+data[i].LONGITUDE);
+							markerPoint.push(new TGOS.TGPoint(data[i].LONGITUDE,data[i].LATITUDE));
 							imgUrl.push("https://api.tgos.tw/TGOS_API/images/marker2.png");
 						}
 							navload();

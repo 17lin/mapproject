@@ -3,10 +3,10 @@
            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
 		   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 		   <meta charset="utf-8">
-		   <meta property="og:title" content="Chiayi OpenData police in TGO">
-		   <meta property="og:description" content="Chiayi X OpenData X police X TGO">
+		   <meta property="og:title" content="Chiayi OpenData data in TGO">
+		   <meta property="og:description" content="Chiayi X OpenData X data X TGO">
 		   <meta property="og:type" content="website">
-           <title>Chiayi X OpenData X police X TGOS</title>
+           <title>Chiayi X OpenData X data X TGOS</title>
 		   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
            <!--呼叫TGOS MAP API (lite)-->
            <script type="text/javascript" src="https://api.tgos.tw/TGOS_API/tgos?ver=2&AppID=x+JLVSx85Lk=&APIKey=in8W74q0ogpcfW/STwicK8D5QwCdddJf05/7nb+OtDh8R99YN3T0LurV4xato3TpL/fOfylvJ9Wv/khZEsXEWxsBmg+GEj4AuokiNXCh14Rei21U5GtJpIkO++Mq3AguFK/ISDEWn4hMzqgrkxNe1Q=="charset="utf-8"></script>
@@ -16,21 +16,14 @@
 		   <script src="../loadpage.js"></script>
 		   <script src="../InitWnd.js"></script>
 		   <script type="text/javascript">
-                     var messageBox;                    //訊息視窗物件  
-                     var pMap;                      //初始化地圖物件
-					 var infotext =  [];        //依序填入地標名稱及訊息視窗內容, 可自行增減數量
-                     var markerPoint = [];        //依序填入地標坐標位置, 坐標數須與標記數一致
-                     var imgUrl = [];                   //依序設定標記點圖示來源
-					 var police = [];
 					 d3.csv("各縣(市)警察(分)局暨所屬分駐(派出)所地址資料-1060831.csv", function(data) {
 					 console.log("d3.csv on!");
-					 police = data;
-					 console.log("police "+police.length);
+					 console.log("data "+data.length);
 					 var pattern = /嘉義市/;
-						for (var i = 0;i<police.length;i++){
-							if (pattern.test(police[i].地址)){
-								infotext.push("<B>單位名稱:"+police[i].中文單位名稱+"</br>地址:"+police[i].郵遞區號+police[i].地址+"</br>電話:"+police[i].電話+"</br>TWD97_X:"+police[i].POINT_X+"</br>TWD97_Y:"+police[i].POINT_Y);
-								markerPoint.push(new TGOS.TGPoint(police[i].POINT_X,police[i].POINT_Y));
+						for (var i = 0;i<data.length;i++){
+							if (pattern.test(data[i].地址)){
+								infotext.push("<B>單位名稱:"+data[i].中文單位名稱+"</br>地址:"+data[i].郵遞區號+data[i].地址+"</br>電話:"+data[i].電話+"</br>TWD97_X:"+data[i].POINT_X+"</br>TWD97_Y:"+data[i].POINT_Y);
+								markerPoint.push(new TGOS.TGPoint(data[i].POINT_X,data[i].POINT_Y));
 								imgUrl.push("https://api.tgos.tw/TGOS_API/images/marker2.png");
 								}
 							}

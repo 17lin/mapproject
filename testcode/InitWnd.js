@@ -1,3 +1,9 @@
+ var messageBox;                    //訊息視窗物件  
+ var pMap;                      //初始化地圖物件
+ var infotext =  [];        //依序填入地標名稱及訊息視窗內容, 可自行增減數量
+ var markerPoint = [];        //依序填入地標坐標位置, 坐標數須與標記數一致
+ var imgUrl = [];                   //依序設定標記點圖示來源
+
 function InitWnd(messageBox,pMap,infotext,markerPoint,imgUrl,maptype,centeron,zoomsize){
 	console.log("InitWnd on!");
 	console.log("x "+infotext.length);

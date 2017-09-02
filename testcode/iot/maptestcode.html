@@ -3,10 +3,10 @@
            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
 		   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 		   <meta charset="utf-8">
-		   <meta property="og:title" content="Chiayi OpenData iTaiwan in TGOS">
-		   <meta property="og:description" content="Chiayi X OpenData X iTaiwan X TGOS">
+		   <meta property="og:title" content="Chiayi OpenData data in TGOS">
+		   <meta property="og:description" content="Chiayi X OpenData X data X TGOS">
 		   <meta property="og:type" content="website">
-           <title>Chiayi X OpenData X iTaiwan X TGOS</title>
+           <title>Chiayi X OpenData X data X TGOS</title>
 		   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
            <!--呼叫TGOS MAP API (lite)-->
            <script type="text/javascript" src="https://api.tgos.tw/TGOS_API/tgos?ver=2&AppID=x+JLVSx85Lk=&APIKey=in8W74q0ogpcfW/STwicK8D5QwCdddJf05/7nb+OtDh8R99YN3T0LurV4xato3TpL/fOfylvJ9Wv/khZEsXEWxsBmg+GEj4AuokiNXCh14Rei21U5GtJpIkO++Mq3AguFK/ISDEWn4hMzqgrkxNe1Q=="charset="utf-8"></script>
@@ -20,16 +20,15 @@
 					 var infotext =  [];        //依序填入地標名稱及訊息視窗內容, 可自行增減數量
                      var markerPoint = [];        //依序填入地標坐標位置, 坐標數須與標記數一致
                      var imgUrl = [];                   //依序設定標記點圖示來源
-					 var itaiwan = [];
-					 $.getJSON('itw_tw.json', {}, function(r) {
+					 var data = [];
+					 $.getJSON('itw_tw.json', {}, function(data) {
 						console.log("getJSON on!");
-						itaiwan = r;
-						console.log("itaiwan "+itaiwan.length);
+						console.log("data "+data.length);
 						var pattern = /嘉義市/;
-						for (var i = 0;i<itaiwan.length;i++){
-							if (pattern.test(itaiwan[i].ADDR)){
-								infotext.push("<B>熱點ID:"+itaiwan[i].SITE_ID+"</br>熱點名稱:"+itaiwan[i].NAME+"</br>聯絡單位:"+itaiwan[i].AGENCY+"</br>地址:"+itaiwan[i].ADDR+"</br>LAT:"+itaiwan[i].LATITUDE+"</br>LON:"+itaiwan[i].LONGITUDE);
-								markerPoint.push(new TGOS.TGPoint(itaiwan[i].LONGITUDE,itaiwan[i].LATITUDE));
+						for (var i = 0;i<data.length;i++){
+							if (pattern.test(data[i].ADDR)){
+								infotext.push("<B>熱點ID:"+data[i].SITE_ID+"</br>熱點名稱:"+data[i].NAME+"</br>聯絡單位:"+data[i].AGENCY+"</br>地址:"+data[i].ADDR+"</br>LAT:"+data[i].LATITUDE+"</br>LON:"+data[i].LONGITUDE);
+								markerPoint.push(new TGOS.TGPoint(data[i].LONGITUDE,data[i].LATITUDE));
 								imgUrl.push("https://api.tgos.tw/TGOS_API/images/marker2.png");
 								}
 							}
