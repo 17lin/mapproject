@@ -10,23 +10,10 @@
 		<title>Chiayi X OpenData X TGOS</title>
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="loadpage.js"></script>
 	</head>
-<body>
-	<nav class="navbar navbar-default navbar-static-top" role="navigation">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Chiayi</a>
-			</div>
-			<div>
-				<ul class="nav navbar-nav">
-					<li><a href="iot/maptestcode.html">iTaiwan</a></li>
-					<li><a href="social/police.html">police</a></li>
-					<li><a href="edu/school.html">school</a></li>
-					<li><a href="iot/aqi.html">AQI</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+<body onload='navload();'>
+	<nav id = "nav" class="navbar navbar-default navbar-static-top" role="navigation"></nav>
 	<div>
 		<div id="OMap" style="float:top; width:100%; height:80%;"></div>	
 		<img src="logo.jpg" style="display:block; margin:auto; max-width:100%; height:auto;">
