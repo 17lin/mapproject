@@ -29,7 +29,6 @@
 					 console.log("d3.csv on!");
 					 console.log("data "+data.length);
 						for (var i = 0;i<data.length;i++){
-							console.log(data[i].村里);
 							infotext.push("<B>村里:"+data[i].村里+"</br>LAT:"+data[i].緯度+"</br>LON:"+data[i].經度);
 							markerPoint.push(new TGOS.TGPoint(data[i].經度,data[i].緯度));
 							imgUrl.push("../marker3.png");
