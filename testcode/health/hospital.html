@@ -3,8 +3,8 @@
            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
 		   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 		   <meta charset="utf-8">
-		   <meta property="og:title" content="Chiayi OpenData data in TGO">
-		   <meta property="og:description" content="Chiayi X OpenData X data X TGO">
+		   <meta property="og:title" content="Chiayi OpenData data in TGOS">
+		   <meta property="og:description" content="Chiayi X OpenData X data X TGOS">
 		   <meta property="og:type" content="website">
            <title>Chiayi X OpenData X data X TGOS</title>
 		   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -16,18 +16,21 @@
 		   <script src="../loadpage.js"></script>
 		   <script src="../InitWnd.js"></script>
 		   <script type="text/javascript">
-					 d3.csv("各縣(市)警察(分)局暨所屬分駐(派出)所地址資料-1060831.csv", function(data) {
+                     var messageBox;                    //訊息視窗物件  
+                     var pMap;                      //初始化地圖物件
+					 var infotext =  [];        //依序填入地標名稱及訊息視窗內容, 可自行增減數量
+                     var markerPoint = [];        //依序填入地標坐標位置, 坐標數須與標記數一致
+                     var imgUrl = [];                   //依序設定標記點圖示來源
+					 var data = [];
+					 d3.csv("嘉義市醫院_診所名單.csv", function(data) {
 					 console.log("d3.csv on!");
 					 console.log("data "+data.length);
-					 var pattern = /嘉義市/;
 						for (var i = 0;i<data.length;i++){
-							if (pattern.test(data[i].地址)){
-								infotext.push("<B>單位名稱:"+data[i].中文單位名稱+"</br>地址:"+data[i].郵遞區號+data[i].地址+"</br>電話:"+data[i].電話+"</br>TWD97_X:"+data[i].POINT_X+"</br>TWD97_Y:"+data[i].POINT_Y);
-								markerPoint.push(new TGOS.TGPoint(data[i].POINT_X,data[i].POINT_Y));
-								imgUrl.push("../marker2.png");
-								}
-							}
-							InitWnd(messageBox,pMap,infotext,markerPoint,imgUrl,"TWD97","yes",9);
+							infotext.push("<B>機構代碼:"+data[i].機構代碼+"</br>機構類別:"+data[i].機構類別+"</br>機構名稱:"+data[i].機構名稱+"</br>負責人:"+data[i].負責人+"</br>電話:"+data[i].電話+"</br>地址:"+data[i].地址+"</br>LAT:"+data[i].LATITUDE+"</br>LON:"+data[i].LONGITUDE);
+							markerPoint.push(new TGOS.TGPoint(data[i].LONGITUDE,data[i].LATITUDE));
+							imgUrl.push("../marker2.png");
+						}
+							InitWnd(messageBox,pMap,infotext,markerPoint,imgUrl,"Google","yes",14);
 					 });
 			</script>
 </head>
