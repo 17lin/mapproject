@@ -22,7 +22,7 @@
 						for (var i = 0;i<data.length;i++){
 							infotext.push("<B>校名:"+data[i].校名+"</br>電話:"+data[i].電話+"</br>傳真:"+data[i].傳真+"</br>校址:"+data[i].校址+"</br>LAT:"+data[i].LATITUDE+"</br>LON:"+data[i].LONGITUDE);
 							markerPoint.push(new TGOS.TGPoint(data[i].LONGITUDE,data[i].LATITUDE));
-							imgUrl.push("https://api.tgos.tw/TGOS_API/images/marker2.png");
+							imgUrl.push("../marker2.png");
 						}
 							InitWnd(messageBox,pMap,infotext,markerPoint,imgUrl,"Google","yes",14);
 					 });

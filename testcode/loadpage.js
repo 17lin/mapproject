@@ -14,13 +14,13 @@ $(document).ready(function(){
 	if (document.title == "Chiayi X OpenData X TGOS"){
 		document.getElementById("panel_Iot").innerHTML = '<li><a href="iot/itaiwan.html">iTaiwan</a></li><li><a href="iot/aqi.html">AQI</a></li>';		
 		document.getElementById("panel_Edu").innerHTML = '<li><a href="edu/school.html">school</a></li>';
-		document.getElementById("panel_Social").innerHTML = '<li><a href="social/police.html">police</a></li>';
+		document.getElementById("panel_Social").innerHTML = '<li><a href="social/police.html">police</a></li><li><a href="social/village.html">village</a></li>';
 		
 	}else{
 		document.getElementById("navheader").innerHTML ='<a class="navbar-brand" href="../index.html">Chiayi</a>';
 		document.getElementById("panel_Iot").innerHTML = '<li><a href="../iot/itaiwan.html">iTaiwan</a></li><li><a href="../iot/aqi.html">AQI</a></li>';		
 		document.getElementById("panel_Edu").innerHTML = '<li><a href="../edu/school.html">school</a></li>';
-		document.getElementById("panel_Social").innerHTML = '<li><a href="../social/police.html">police</a></li>';
+		document.getElementById("panel_Social").innerHTML = '<li><a href="../social/police.html">police</a></li></li><li><a href="../social/village.html">village</a></li>';
 	}
 	document.getElementById("panel_Iot").style.display="none";
 	document.getElementById("panel_Edu").style.display="none";

@@ -24,7 +24,7 @@
 							if (pattern.test(data[i].地址)){
 								infotext.push("<B>單位名稱:"+data[i].中文單位名稱+"</br>地址:"+data[i].郵遞區號+data[i].地址+"</br>電話:"+data[i].電話+"</br>TWD97_X:"+data[i].POINT_X+"</br>TWD97_Y:"+data[i].POINT_Y);
 								markerPoint.push(new TGOS.TGPoint(data[i].POINT_X,data[i].POINT_Y));
-								imgUrl.push("https://api.tgos.tw/TGOS_API/images/marker2.png");
+								imgUrl.push("../marker2.png");
 								}
 							}
 							InitWnd(messageBox,pMap,infotext,markerPoint,imgUrl,"TWD97","yes",9);

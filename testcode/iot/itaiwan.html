@@ -29,7 +29,7 @@
 							if (pattern.test(data[i].ADDR)){
 								infotext.push("<B>熱點ID:"+data[i].SITE_ID+"</br>熱點名稱:"+data[i].NAME+"</br>聯絡單位:"+data[i].AGENCY+"</br>地址:"+data[i].ADDR+"</br>LAT:"+data[i].LATITUDE+"</br>LON:"+data[i].LONGITUDE);
 								markerPoint.push(new TGOS.TGPoint(data[i].LONGITUDE,data[i].LATITUDE));
-								imgUrl.push("https://api.tgos.tw/TGOS_API/images/marker2.png");
+								imgUrl.push("../marker2.png");
 								}
 							}
 							InitWnd(messageBox,pMap,infotext,markerPoint,imgUrl,"Google","yes",14);
