@@ -1,0 +1,42 @@
+<html>
+<head>
+           <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+		   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+		   <meta charset="utf-8">
+		   <meta property="og:title" content="Chiayi OpenData data in TGOS">
+		   <meta property="og:description" content="Chiayi X OpenData X data X TGOS">
+		   <meta property="og:type" content="website">
+           <title>Chiayi X OpenData X data X TGOS</title>
+		   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+           <!--呼叫TGOS MAP API (lite)-->
+           <script type="text/javascript" src="https://api.tgos.tw/TGOS_API/tgos?ver=2&AppID=x+JLVSx85Lk=&APIKey=in8W74q0ogpcfW/STwicK8D5QwCdddJf05/7nb+OtDh8R99YN3T0LurV4xato3TpL/fOfylvJ9Wv/khZEsXEWxsBmg+GEj4AuokiNXCh14Rei21U5GtJpIkO++Mq3AguFK/ISDEWn4hMzqgrkxNe1Q=="charset="utf-8"></script>
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		   <script src="https://d3js.org/d3.v3.min.js"></script>
+		   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		   <script src="../loadpage.js"></script>
+		   <script src="../InitWnd.js"></script>
+		   <script type="text/javascript">
+                     var messageBox;                    //訊息視窗物件  
+                     var pMap;                      //初始化地圖物件
+					 var infotext =  [];        //依序填入地標名稱及訊息視窗內容, 可自行增減數量
+                     var markerPoint = [];        //依序填入地標坐標位置, 坐標數須與標記數一致
+                     var imgUrl = [];                   //依序設定標記點圖示來源
+					 var data = [];
+					 d3.csv("嘉義市幼兒園名錄.csv", function(data) {
+					 console.log("d3.csv on!");
+					 console.log("data "+data.length);
+						for (var i = 0;i<data.length;i++){
+							infotext.push("<B>設立別:"+data[i].設立別+"</br>幼兒園名稱:"+data[i].幼兒園名稱+"</br>園長:"+data[i].園長+"</br>幼兒園電話:"+data[i].幼兒園電話+"</br>幼兒園住址:"+data[i].幼兒園住址+"</br>LAT:"+data[i].LATITUDE+"</br>LON:"+data[i].LONGITUDE);
+							markerPoint.push(new TGOS.TGPoint(data[i].LONGITUDE,data[i].LATITUDE));
+							imgUrl.push("../marker2.png");
+						}
+							InitWnd(messageBox,pMap,infotext,markerPoint,imgUrl,"Google","yes",14);
+					 });
+			</script>
+</head>
+<body>
+			<nav id = "nav" class="navbar navbar-default navbar-static-top" role="navigation"></nav>
+			<div id="OMap"  class="container" style="width:100%; height:80%; border:1px solid #000000;  float:center;"></div>
+			<div id = "copyright" style="text-align: center;"></div>
+</body>
+</html>
