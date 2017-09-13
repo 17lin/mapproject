@@ -26,8 +26,8 @@ $(document).ready(function(){
 	var social = ['social/village.html','social/childyouth.html','social/familywelfare.html','social/challenged.html','social/women.html'];
 	var Health = ['hospital'];
 	var health = ['health/hospital.html'];
-	var Life = ['Police','Fire','SpeedPhoto','Oil','Park'];
-	var life = ['life/police.html','life/fire.html','life/speedphoto','life/oil.html','life/park.html'];
+	var Life = ['Police','Fire','SpeedPhoto','Oil','Park','eBike'];
+	var life = ['life/police.html','life/fire.html','life/speedphoto','life/oil.html','life/park.html','life/bike.html'];
 	var IOT="",EDU="",SOCIAL="",HEALTH="",LIFE="";
 	if (document.title == "Chiayi X OpenData X TGOS"){
 		for (var i=0;i<Iot.length;i++)IOT+='<span style="padding: 5px;"><a href="'+iot[i]+'">'+Iot[i]+'</a></span>';
