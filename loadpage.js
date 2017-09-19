@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	//load nav part
-	document.getElementById("nav").innerHTML = '<p style="float:right;vertical-align:middle;">點位呈現展示網頁</p><div class="container"> <div id = "navheader" class="navbar-header"> <a class="navbar-brand" href="#">Chiayi</a> </div> <div> <ul id = "navbar" class="nav navbar-nav"></ul> </div> </div> <div id="panel" style="border: solid 1px #8FBC8F;"> </div>';
-	document.getElementById("navbar").innerHTML = '<li><a id="flip_Iot" href=# class="" style="margin-left:15px;">Iot</a></li> <li><a id="flip_Edu" href=# class="" style="margin-left:15px;">Edu</a></li> <li><a id="flip_Social" href=# class="" style="margin-left:15px;">Social</a></li><li><a id="flip_Health" href=# class="" style="margin-left:15px;">Health</a></li><li><a id="flip_Life" href=# class="" style="margin-left:15px;">Life</a></li>';
+	document.getElementById("nav").innerHTML = '<div class="container-fluid"> <div> <div class="collapse navbar-collapse"><span id="navheader"> <a class="navbar-brand" href="#">Chiayi</a></span> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <div id = "navbar" class="navbar-nav"></div> </div> </div> <p style="float:right;vertical-align:middle;">點位呈現展示網頁</p> </div>';
+	document.getElementById("navbar").innerHTML = '<a id="flip_Iot" href=# class="nav-item nav-link" style="margin-left:15px;">Iot</a> <a id="flip_Edu" href=# class="nav-item nav-link" style="margin-left:15px;">Edu</a> <a id="flip_Social" href=# class="nav-item nav-link" style="margin-left:15px;">Social</a> <a id="flip_Health" href=# class="nav-item nav-link" style="margin-left:15px;">Health</a> <a id="flip_Life" href=# class="nav-item nav-link" style="margin-left:15px;">Life</a>';
 	document.getElementById("panel").innerHTML = '<div id="panel_Iot">	</div><div id="panel_Edu">	</div><div id="panel_Social">	</div><div id="panel_Health"></div><div id="panel_Life"></div>';	
 	$("#flip_Iot").click(function(){
 		$("#panel_Iot").slideToggle("fast");
@@ -27,7 +27,7 @@ $(document).ready(function(){
 	var Health = ['hospital'];
 	var health = ['health/hospital.html'];
 	var Life = ['Police','Fire','SpeedPhoto','Oil','Park','eBike'];
-	var life = ['life/police.html','life/fire.html','life/speedphoto','life/oil.html','life/park.html','life/bike.html'];
+	var life = ['life/police.html','life/fire.html','life/speedphoto.html','life/oil.html','life/park.html','life/bike.html'];
 	var IOT="",EDU="",SOCIAL="",HEALTH="",LIFE="";
 	if (document.title == "Chiayi X OpenData X TGOS"){
 		for (var i=0;i<Iot.length;i++)IOT+='<span style="padding: 5px;"><a href="'+iot[i]+'">'+Iot[i]+'</a></span>';
