@@ -18,7 +18,7 @@ $(document).ready(function(){
 	$("#flip_Life").click(function(){
 		$("#panel_Life").slideToggle("fast");
 	});
-	var Iot = ['iTaiwan','Windy'];
+	var Iot = ['iTaiwan','Weater'];
 	var iot = ['iot/itaiwan.html','iot/windy.html'];
 	var Edu = ['school','kindergraten'];
 	var edu = ['edu/school.html','edu/kindergraten.html'];
