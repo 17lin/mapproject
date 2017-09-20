@@ -18,8 +18,8 @@ $(document).ready(function(){
 	$("#flip_Life").click(function(){
 		$("#panel_Life").slideToggle("fast");
 	});
-	var Iot = ['iTaiwan'];
-	var iot = ['iot/itaiwan.html'];
+	var Iot = ['iTaiwan','Windy'];
+	var iot = ['iot/itaiwan.html','iot/windy.html'];
 	var Edu = ['school','kindergraten'];
 	var edu = ['edu/school.html','edu/kindergraten.html'];
 	var Social = ['village','ChildYouth','Familywelfare','Challenged','Womenwelfare'];
