@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	//load nav part
 	document.getElementById("nav").innerHTML = '<div class="container-fluid"> <div class="collapse navbar-collapse"> <span id="navheader"><a class="navbar-brand" href="#">Chiayi</a></span> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <div id = "navbar" class="navbar-nav"></div> </div> </div>';
-	document.getElementById("navbar").innerHTML = '<a id="flip_Iot" href=# class="nav-item nav-link" style="margin-left:15px;">Iot</a> <a id="flip_Edu" href=# class="nav-item nav-link" style="margin-left:15px;">Edu</a> <a id="flip_Social" href=# class="nav-item nav-link" style="margin-left:15px;">Social</a> <a id="flip_Health" href=# class="nav-item nav-link" style="margin-left:15px;">Health</a> <a id="flip_Life" href=# class="nav-item nav-link" style="margin-left:15px;">Life</a>';
+	document.getElementById("navbar").innerHTML = '<a id="flip_Iot" href=# class="nav-item nav-link">Iot</a> <a id="flip_Edu" href=# class="nav-item nav-link">Edu</a> <a id="flip_Social" href=# class="nav-item nav-link">Social</a> <a id="flip_Health" href=# class="nav-item nav-link">Health</a> <a id="flip_Life" href=# class="nav-item nav-link">Life</a>';
 	document.getElementById("panel").innerHTML = '<div id="panel_Iot">	</div><div id="panel_Edu">	</div><div id="panel_Social">	</div><div id="panel_Health"></div><div id="panel_Life"></div>';	
 	$("#flip_Iot").click(function(){
 		$("#panel_Iot").slideToggle("fast");
