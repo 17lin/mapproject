@@ -18,7 +18,8 @@
 		   <script src="../loadpage.js"></script>
 		   <script src="../InitWnd.js"></script>
 		   <script type="text/javascript">
-			   var pMap = document.getElementById("OMap");
+			   var pOMap = document.getElementById("OMap");
+			   var pMap = new TGOS.TGOnlineMap(pOMap, TGOS.TGCoordSys.EPSG3857);
 					 d3.csv("嘉義市醫院_診所名單.csv", function(data) {
 					 console.log("d3.csv on!");
 					 console.log("data "+data.length);
