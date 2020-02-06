@@ -18,6 +18,7 @@
 		   <script src="../loadpage.js"></script>
 		   <script src="../InitWnd.js"></script>
 		   <script type="text/javascript">
+			   var pMap = document.getElementById("OMap");
 					 d3.csv("嘉義市醫院_診所名單.csv", function(data) {
 					 console.log("d3.csv on!");
 					 console.log("data "+data.length);
@@ -26,7 +27,7 @@
 							markerPoint.push(new TGOS.TGPoint(data[i].LONGITUDE,data[i].LATITUDE));
 							imgUrl.push("../marker2.png");
 						}
-							InitWnd(messageBox,pMap,infotext,markerPoint,imgUrl,"TGOS.TGCoordSys.EPSG3857","yes",14);
+					InitWnd(messageBox,pMap,infotext,markerPoint,imgUrl,"TGOS.TGCoordSys.EPSG3857","yes",14);
 					 });
 			</script>
 </head>
