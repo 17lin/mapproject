@@ -18,12 +18,6 @@
 		   <script src="../loadpage.js"></script>
 		   <script src="../InitWnd.js"></script>
 		   <script type="text/javascript">
-                     var messageBox;                    //訊息視窗物件  
-                     var pMap;                      //初始化地圖物件
-					 var infotext =  [];        //依序填入地標名稱及訊息視窗內容, 可自行增減數量
-                     var markerPoint = [];        //依序填入地標坐標位置, 坐標數須與標記數一致
-                     var imgUrl = [];                   //依序設定標記點圖示來源
-					 var data = [];
 					 d3.csv("嘉義市醫院_診所名單.csv", function(data) {
 					 console.log("d3.csv on!");
 					 console.log("data "+data.length);
